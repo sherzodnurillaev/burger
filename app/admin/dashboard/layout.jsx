@@ -1,3 +1,5 @@
+import "./globals.css";
+import Bar from "@/components/AdminBar";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,7 +11,7 @@ export default async function Layout({ children }) {
   return (
     <html lang={"ru"}>
       <body className="bg-[#FFAB08]">
-        <h1>Layout</h1>
+          <Bar />
           {children}
       </body>
     </html>
