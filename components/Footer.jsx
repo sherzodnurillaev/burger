@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = ({ translate }) => {
-  console.log(translate);
+  // console.log(translate);
   
   return (
     <footer className='bg-[#fff]'>

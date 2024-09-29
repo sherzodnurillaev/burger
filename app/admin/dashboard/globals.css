@@ -1,3 +1,114 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Bar {
+    box-shadow: 0 0 20px 0 black;
+    transition: background-color 3s ease; /* Задержка 3 секунды */
+}
+
+.head {
+    box-shadow: 0 5px 10px 0 black;
+}
+.Bar:hover {
+    box-shadow: 0 0 50px 0 black;
+    background-color: #ff5a08;
+    transition: 3s;
+}
+
+.btn {
+    background-color: #6d6d6d;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #FF7020;
+}
+
+.dvd1 {
+    width: 100px;
+    animation: moveAndRotate1 5s linear infinite;
+}
+
+.dvd2 {
+    width: 100px;
+    animation: moveAndRotate2 6s linear infinite;
+}
+
+.dvd3 {
+    width: 100px;
+    animation: moveAndRotate3 7s linear infinite;
+}
+
+.atraction:hover {
+    width: 100px;
+    animation-play-state: paused; /* Остановить анимацию при наведении */
+}
+
+.add {
+    transition: box-shadow 1s ease; /* Задержка 3 секунды */
+}
+.add:active {
+    color: black;
+    background-color: #fff;
+    transition: 200ms;
+}
+
+.add:hover {
+    box-shadow: 0 0 10px 0 rebeccapurple;
+    transition: 1s;
+}
+
+@keyframes moveAndRotate1 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(calc(50px - 100px), 0) rotate(90deg);
+    }
+    50% {
+        transform: translate(calc(70vw - 80px), calc(100vh - 100px)) rotate(180deg);
+    }
+    75% {
+        transform: translate(0, calc(80vh - 80px)) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+@keyframes moveAndRotate2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(calc(70vw - 100px), 50px) rotate(90deg);
+    }
+    50% {
+        transform: translate(calc(70vw - 100px), calc(80vh - 100px)) rotate(180deg);
+    }
+    75% {
+        transform: translate(30px, calc(80vh - 100px)) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+@keyframes moveAndRotate3 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(calc(30vw - 100px), calc(20vh - 20px)) rotate(90deg);
+    }
+    50% {
+        transform: translate(calc(30vw - 100px), calc(60vh - 100px)) rotate(180deg);
+    }
+    75% {
+        transform: translate(calc(10vw - 20px), calc(60vh - 20px)) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}

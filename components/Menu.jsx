@@ -9,7 +9,7 @@ export const arrey = [
         id: "1",
         img: "/burger/Бургеры.png",
         title: { ru: "Бургеры", en: "Burgers" },
-        category:"burger"
+        categoryes:"burgers"
     },
     {
         id: "2",
@@ -53,7 +53,10 @@ export const arrey = [
     }
 ]
 
-const Menu = ({ translate, lang }) => {
+const Menu = ({ translate, data, lang }) => {
+  
+
+  
   
   return (
     <div className="bg-[#F2F2F3]">
@@ -62,14 +65,14 @@ const Menu = ({ translate, lang }) => {
         return (
           <Link
           key={item.id}
-            href={`/?category=${item.category}`}
+            href={`/?category=${item.categoryes}`}
             className="flex items-center gap-[8px] bg-[#fff] px-[14px] py-[8px] rounded-[50px] cursor-pointer"
           >
             <img src={item.img} alt="" className="w-[24px]" />
             <p className="text-[14px]">{item.title[lang]}</p>
           </Link>
         );
-      })}
+      })} 
       </div>
     </div>
   );

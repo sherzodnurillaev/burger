@@ -1,10 +1,9 @@
-// components/Header.js
 'use client'
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import img from "@/Public/Loyaut/logo.png"
-import burger from "@/Public/Loyaut/pic.png"
+import img from "../Public/Loyaut/logo.png"
+import burger from "../Public/Loyaut/pic.png"
 // logo.png
 
 const Header = ({ translate }) => {

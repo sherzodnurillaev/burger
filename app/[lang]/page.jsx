@@ -1,5 +1,5 @@
-import { getDictionary } from './dictionaries'
-import Burger from "@/components/Burger";
+import Burger from "../../components/Burger";
+import CustomPage from '../../components/CustomPage';
 
 export const arrey = [
   {
@@ -50,23 +50,46 @@ export const arrey = [
 
 export default async function Home({params, searchParams}) {
   const {lang} = params
-  console.log(lang);
 
-	const dfilteData = arrey.filter(item => {
-		if (item.category === searchParams.category) {
-			return item
-		}
-	})
+  const res = await fetch('http://localhost:3000/api/menu', {cache: "no-cache"})
+
+  
+  const {data} = await res.json()
+  
+  // console.log(data);
+
+  
+
+  const dfilteData = data.filter(item => {
+    const itemCategory = item.category ? item.category.toLowerCase() : '';
+    const searchCategory = searchParams.category ? searchParams.category.toLowerCase() : '';
+
+    // console.log(item.category);
+    // console.log(searchParams.category + 'frfrfr');
+    
+    
+
+    return itemCategory === searchCategory;
+});
+
+console.log(dfilteData[0]);
+
 
   return (
     <>
-      <div className=" px-[30px] bg-[#F2F2F3] w-[100%]">
-        <h1 className="text-[40px] text-left mb-[20px]">{lang == "ru" ? "Бургерс" : "Burgers"}</h1>
+      <div className="px-[30px] bg-[#F2F2F3] w-[100%]">
+        <h1 className="text-[40px] text-left mb-[20px]">
+          {dfilteData.length > 0 ? lang === "ru" ? "Бургерс" : "Burgers" : ""}
+        </h1>
 
         <div className="grid grid-cols-3 gap-[30px] pb-[100px]">
-          {dfilteData.map((item) => (
-            <Burger key={item.id} data={item} />
-          ))}
+          {dfilteData.length > 0 ? (
+            dfilteData.map(item => (
+              <Burger key={item.id} menu={item} lang={lang} />
+            ))
+          ) : (
+            <CustomPage />
+          )}
         </div>
       </div>
     </>
